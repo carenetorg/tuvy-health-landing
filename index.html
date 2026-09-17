@@ -33,6 +33,9 @@
   a{color:inherit;text-decoration:none;}
   .container{max-width:1160px;margin:0 auto;padding:0 24px;}
   section{padding:100px 0;}
+  /* The header is sticky at 79px; without this every #anchor jump lands with
+     the section heading hidden underneath it. */
+  section[id]{scroll-margin-top:96px;}
   h1,h2,h3,h4{font-weight:700;letter-spacing:-0.02em;color:var(--ink);font-family:Georgia,"Times New Roman",serif;}
   .eyebrow{
     display:inline-flex;align-items:center;gap:8px;
@@ -269,18 +272,52 @@
     font-size:13px;color:#7f939b;
   }
 
+  /* Pricing: four tiers */
+  .price-grid-4{grid-template-columns:repeat(4,1fr);gap:18px;}
+  .price{margin:2px 0 14px;}
+  .price .amt{font-size:1.6rem;font-weight:700;color:var(--navy);font-family:Georgia,"Times New Roman",serif;}
+  .price .per{font-size:.9rem;color:var(--ink-soft);margin-left:4px;}
+
+  /* Download */
+  .download{background:var(--sage-soft);}
+  .download{padding:84px 0;}
+  .download .section-head{margin-bottom:34px;}
+  .dl-card{
+    max-width:640px;margin:0 auto;background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);box-shadow:var(--shadow);padding:30px 28px;text-align:center;
+  }
+  .store-row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
+  .store-btn{
+    display:inline-flex;align-items:center;gap:11px;background:var(--navy);color:#fff;
+    text-decoration:none;border-radius:12px;padding:12px 20px;min-width:200px;
+    transition:transform .15s ease,box-shadow .15s ease;
+  }
+  .store-btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(13,36,56,0.18);}
+  .store-btn svg{flex:0 0 auto;}
+  .store-btn .txt{display:block;text-align:left;}
+  .store-btn .l1{display:block;font-size:.64rem;letter-spacing:.07em;text-transform:uppercase;opacity:.72;line-height:1.3;}
+  .store-btn .l2{display:block;font-size:1.02rem;font-weight:600;line-height:1.25;}
+  .store-btn.ghost{background:transparent;color:var(--navy);border:1px solid var(--line);}
+  .store-btn.ghost:hover{border-color:var(--teal);box-shadow:none;}
+  .dl-note{font-size:.88rem;color:var(--ink-soft);margin:16px auto 0;max-width:430px;}
+  .dl-pro{margin-top:24px;padding-top:22px;border-top:1px solid var(--line);}
+  .dl-pro h4{font-size:.98rem;color:var(--navy);margin-bottom:4px;}
+  .dl-pro p{font-size:.9rem;color:var(--ink-soft);margin-bottom:16px;}
+
   @media (max-width: 980px){
     .hero h1{font-size:38px;}
-    .problem-grid,.persona-grid,.steps,.handshake-grid,.match-grid,.stats-grid,.price-grid,.footer-grid{grid-template-columns:repeat(2,1fr);}
+    .problem-grid,.persona-grid,.steps,.handshake-grid,.match-grid,.stats-grid,.price-grid,.price-grid-4,.footer-grid{grid-template-columns:repeat(2,1fr);}
     .solution-grid{grid-template-columns:1fr;}
   }
   @media (max-width: 680px){
     nav.links{display:none;}
     .nav-toggle{display:block;}
     section{padding:64px 0;}
-    .problem-grid,.persona-grid,.steps,.handshake-grid,.match-grid,.stats-grid,.price-grid,.footer-grid{grid-template-columns:1fr;}
+    .problem-grid,.persona-grid,.steps,.handshake-grid,.match-grid,.stats-grid,.price-grid,.price-grid-4,.footer-grid{grid-template-columns:1fr;}
     .cta-banner{padding:40px 26px;flex-direction:column;text-align:center;}
     .price-card.featured{transform:none;}
+    .dl-card{padding:26px 20px;}
+    .store-btn{min-width:0;width:100%;justify-content:flex-start;}
   }
 </style>
 </head>
@@ -650,26 +687,27 @@
   </div>
 </section>
 
-<section id="download">
+<section id="download" class="download">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Get Tuvy</span>
       <h2>Bring Tuvy home.</h2>
-      <p class="lede">Download the app, add your parent, and choose a plan — subscriptions are set up inside the app.</p>
+      <p class="lede">Download the app, add your parent, and choose a plan. Subscriptions are set up inside the app.</p>
     </div>
-    <div class="store-row">
-      <a class="store-btn" href="https://apps.apple.com/app/id6809455314" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.8c0-2.2 1.8-3.3 1.9-3.3-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.7.8-3.3.8-.7 0-1.7-.8-2.8-.8-1.5 0-2.8.8-3.6 2.1-1.5 2.6-.4 6.5 1.1 8.6.7 1 1.6 2.2 2.7 2.2 1.1 0 1.5-.7 2.8-.7s1.6.7 2.8.7c1.2 0 1.9-1 2.6-2.1.8-1.2 1.2-2.4 1.2-2.5-.1 0-2.2-.9-2.2-3.3zM14.3 5.6c.6-.7 1-1.7.9-2.7-.9 0-2 .6-2.6 1.3-.6.6-1.1 1.6-.9 2.6 1 .1 2-.5 2.6-1.2z"/></svg><span><span class="l1">Download on the</span><span class="l2">App Store</span></span></a>
-      <a class="store-btn" href="https://play.google.com/store/apps/details?id=health.tuvy.app" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1 9.3-9.3v-.2L3.7 2.2l-.1.1zm12.5 6.2L13 11.6 3.9 2.5l12.2 6zm2.8 1.8c.6.4 1 .9 1 1.7s-.4 1.3-1 1.7l-2.3 1.3-3.2-3 3.2-3 2.3 1.3zM3.9 21.5l9.1-9.1 3.1 3.1-12.2 6z"/></svg><span><span class="l1">Get it on</span><span class="l2">Google Play</span></span></a>
-    </div>
-    <p class="dl-note">Tuvy is rolling out now. If a store link is not live in your region yet,
-      <a href="mailto:admin@tuvy.health?subject=Tuvy%20early%20access">ask us for early access</a>
-      and we will tell you exactly when it is.</p>
-    <div class="dl-pro">
-      <h4>Are you a care professional?</h4>
-      <p>Tuvy Provider is the caregiver app — onboarding, visits and payouts.</p>
+    <div class="dl-card">
       <div class="store-row">
-        <a class="store-btn ghost" href="https://apps.apple.com/app/id6809455524" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.8c0-2.2 1.8-3.3 1.9-3.3-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.7.8-3.3.8-.7 0-1.7-.8-2.8-.8-1.5 0-2.8.8-3.6 2.1-1.5 2.6-.4 6.5 1.1 8.6.7 1 1.6 2.2 2.7 2.2 1.1 0 1.5-.7 2.8-.7s1.6.7 2.8.7c1.2 0 1.9-1 2.6-2.1.8-1.2 1.2-2.4 1.2-2.5-.1 0-2.2-.9-2.2-3.3zM14.3 5.6c.6-.7 1-1.7.9-2.7-.9 0-2 .6-2.6 1.3-.6.6-1.1 1.6-.9 2.6 1 .1 2-.5 2.6-1.2z"/></svg><span><span class="l1">Download on the</span><span class="l2">App Store</span></span></a>
-        <a class="store-btn ghost" href="https://play.google.com/store/apps/details?id=health.tuvy.pro" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1 9.3-9.3v-.2L3.7 2.2l-.1.1zm12.5 6.2L13 11.6 3.9 2.5l12.2 6zm2.8 1.8c.6.4 1 .9 1 1.7s-.4 1.3-1 1.7l-2.3 1.3-3.2-3 3.2-3 2.3 1.3zM3.9 21.5l9.1-9.1 3.1 3.1-12.2 6z"/></svg><span><span class="l1">Get it on</span><span class="l2">Google Play</span></span></a>
+        <a class="store-btn" href="https://apps.apple.com/app/id6809455314" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.8c0-2.2 1.8-3.3 1.9-3.3-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.7.8-3.3.8-.7 0-1.7-.8-2.8-.8-1.5 0-2.8.8-3.6 2.1-1.5 2.6-.4 6.5 1.1 8.6.7 1 1.6 2.2 2.7 2.2 1.1 0 1.5-.7 2.8-.7s1.6.7 2.8.7c1.2 0 1.9-1 2.6-2.1.8-1.2 1.2-2.4 1.2-2.5-.1 0-2.2-.9-2.2-3.3zM14.3 5.6c.6-.7 1-1.7.9-2.7-.9 0-2 .6-2.6 1.3-.6.6-1.1 1.6-.9 2.6 1 .1 2-.5 2.6-1.2z"/></svg><span class="txt"><span class="l1">Download on the</span><span class="l2">App Store</span></span></a>
+        <a class="store-btn" href="https://play.google.com/store/apps/details?id=health.tuvy.app" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1 9.3-9.3v-.2L3.7 2.2l-.1.1zm12.5 6.2L13 11.6 3.9 2.5l12.2 6zm2.8 1.8c.6.4 1 .9 1 1.7s-.4 1.3-1 1.7l-2.3 1.3-3.2-3 3.2-3 2.3 1.3zM3.9 21.5l9.1-9.1 3.1 3.1-12.2 6z"/></svg><span class="txt"><span class="l1">Get it on</span><span class="l2">Google Play</span></span></a>
+      </div>
+      <p class="dl-note">Tuvy is rolling out now. If a store link is not live in your region yet,
+        <a href="mailto:admin@tuvy.health?subject=Tuvy%20early%20access">ask us for early access</a>.</p>
+      <div class="dl-pro">
+        <h4>Are you a care professional?</h4>
+        <p>Tuvy Provider is the caregiver app — onboarding, visits and payouts.</p>
+        <div class="store-row">
+          <a class="store-btn ghost" href="https://apps.apple.com/app/id6809455524" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.8c0-2.2 1.8-3.3 1.9-3.3-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.7.8-3.3.8-.7 0-1.7-.8-2.8-.8-1.5 0-2.8.8-3.6 2.1-1.5 2.6-.4 6.5 1.1 8.6.7 1 1.6 2.2 2.7 2.2 1.1 0 1.5-.7 2.8-.7s1.6.7 2.8.7c1.2 0 1.9-1 2.6-2.1.8-1.2 1.2-2.4 1.2-2.5-.1 0-2.2-.9-2.2-3.3zM14.3 5.6c.6-.7 1-1.7.9-2.7-.9 0-2 .6-2.6 1.3-.6.6-1.1 1.6-.9 2.6 1 .1 2-.5 2.6-1.2z"/></svg><span class="txt"><span class="l1">Download on the</span><span class="l2">App Store</span></span></a>
+          <a class="store-btn ghost" href="https://play.google.com/store/apps/details?id=health.tuvy.pro" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1 9.3-9.3v-.2L3.7 2.2l-.1.1zm12.5 6.2L13 11.6 3.9 2.5l12.2 6zm2.8 1.8c.6.4 1 .9 1 1.7s-.4 1.3-1 1.7l-2.3 1.3-3.2-3 3.2-3 2.3 1.3zM3.9 21.5l9.1-9.1 3.1 3.1-12.2 6z"/></svg><span class="txt"><span class="l1">Get it on</span><span class="l2">Google Play</span></span></a>
+        </div>
       </div>
     </div>
   </div>
