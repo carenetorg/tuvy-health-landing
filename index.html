@@ -108,6 +108,20 @@
     background:rgba(31,122,108,0.28);filter:blur(10px);
   }
   .hero-inner{position:relative;max-width:760px;}
+  /* Two-column hero — the right half was an empty decorative circle. */
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.05fr 0.95fr;gap:48px;align-items:center;}
+  .hero-grid .hero-copy{max-width:640px;}
+  .hero-shot{justify-self:center;position:relative;}
+  .phone{
+    width:270px;border-radius:38px;padding:10px;background:#0a1c2c;
+    border:1px solid rgba(255,255,255,0.16);
+    box-shadow:0 30px 70px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.04) inset;
+  }
+  .phone img{display:block;width:100%;height:auto;border-radius:29px;}
+  .phone::before{
+    content:"";position:absolute;top:20px;left:50%;transform:translateX(-50%);
+    width:86px;height:22px;border-radius:12px;background:#000;z-index:2;
+  }
   .hero .eyebrow-script{
     font-family:Georgia,serif;font-style:italic;color:var(--sage);font-size:22px;margin-bottom:18px;display:block;
   }
@@ -328,6 +342,8 @@
     .hero h1{font-size:38px;}
     .problem-grid,.persona-grid,.steps,.handshake-grid,.match-grid,.stats-grid,.price-grid,.price-grid-4,.footer-grid{grid-template-columns:repeat(2,1fr);}
     .solution-grid{grid-template-columns:1fr;}
+    .hero-grid{grid-template-columns:1fr;gap:40px;}
+    .phone{width:230px;}
   }
   @media (max-width: 680px){
     nav.links{display:none;}
@@ -366,13 +382,21 @@
 </header>
 
 <section class="hero">
-  <div class="container hero-inner">
+  <div class="container hero-grid">
+    <div class="hero-copy">
     <span class="eyebrow-script">The Luxury of Stillness</span>
     <h1>Care, trust &amp; transparency for families across distance.</h1>
     <p class="lede">Tuvy is a Continuity Trust-Loop for in-home healthcare — verified caregivers, authorized families, and tamper-proof visits, so you always know your parent is truly cared for.</p>
     <div class="hero-actions">
       <a href="#download" class="btn btn-primary">Get the app</a>
       <a href="#solution" class="btn btn-outline-light" style="border-color:rgba(255,255,255,0.4);">See how it works</a>
+    </div>
+    </div>
+    <div class="hero-shot">
+      <div class="phone">
+        <img src="/img/app-vitals.png" width="1206" height="2622"
+             alt="The Tuvy app showing a care recipient's latest readings — blood pressure 121/79, oxygen 97%, blood sugar 5.6 — above a list of recent home visits.">
+      </div>
     </div>
   </div>
 </section>
