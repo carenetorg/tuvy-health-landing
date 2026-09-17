@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data &amp; Security — Tuvy</title>
+<meta name="description" content="How Tuvy protects health data, and what we do not yet claim.">
+<style>
+  :root{--navy:#0d2438;--teal:#1f7a6c;--cream:#f6f8f6;--ink:#0d2438;--ink-soft:#526270;
+        --card:#fff;--line:#e3eae7;--radius:16px;--shadow:0 12px 34px rgba(13,36,56,0.10);}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"Segoe UI",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+       color:var(--ink);background:var(--cream);line-height:1.65;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:760px;margin:0 auto;padding:56px 20px 80px;}
+  .back{display:inline-block;color:var(--teal);text-decoration:none;font-size:.92rem;margin-bottom:28px;}
+  .back:hover{text-decoration:underline;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+        box-shadow:var(--shadow);padding:40px 36px;}
+  h1{font-size:1.9rem;line-height:1.25;margin-bottom:10px;color:var(--navy);}
+  h2{font-size:1.18rem;margin:30px 0 10px;color:var(--navy);}
+  p{margin:0 0 12px;color:var(--ink-soft);} p strong{color:var(--ink);}
+  ul{margin:0 0 14px 20px;} li{margin-bottom:8px;color:var(--ink-soft);} li strong{color:var(--ink);}
+  a{color:var(--teal);}
+  .meta{background:#f2f6f4;border-left:3px solid var(--teal);padding:12px 14px;border-radius:8px;margin-bottom:22px;}
+  .candid{background:#fdf6ec;border-left:3px solid #c98a2e;padding:14px 16px;border-radius:8px;margin:22px 0;}
+  .candid h2{margin-top:0;color:#8a5d12;}
+  @media(max-width:560px){.wrap{padding:32px 16px 56px;}.card{padding:26px 20px;}h1{font-size:1.55rem;}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="/">&larr; Tuvy</a>
+    <main class="card">
+      <h1>Data &amp; Security</h1>
+      <p class="meta"><strong>Last updated:</strong> 17 September 2026<br>
+      Questions or disclosures: <a href="mailto:admin@tuvy.health">admin@tuvy.health</a></p>
+
+      <p>Tuvy holds health information about people who are often not the person
+      operating the app. That asymmetry is the reason for most of what follows.</p>
+
+      <h2>Encryption</h2>
+      <ul>
+        <li><strong>At rest.</strong> Health and identifying fields are encrypted with
+        <strong>AES-256-GCM</strong> in our application layer <em>before</em> they reach the
+        database, so the stored value is ciphertext rather than readable text.</li>
+        <li><strong>In transit.</strong> All traffic between the apps and our services runs over TLS.</li>
+        <li><strong>Keys</strong> are held in Google Secret Manager and loaded at runtime. They are
+        not in our source code.</li>
+      </ul>
+
+      <h2>Who can see what</h2>
+      <ul>
+        <li>Every protected endpoint enforces <strong>role-based access control</strong> — family
+        member, care professional, and operations are separate roles with separate reach.</li>
+        <li>Within a family, each member has a <strong>per-member visibility setting</strong>.
+        Fields a member has not been granted are removed before the data leaves our
+        servers, not hidden in the app.</li>
+        <li>A newly invited family member starts with <strong>no visibility</strong> until the
+        account owner grants it.</li>
+      </ul>
+
+      <h2>The visit record</h2>
+      <p>Each visit builds a <strong>SHA-256 hash chain</strong>: every recorded event includes the
+      hash of the one before it, so an event cannot be altered or removed after the fact
+      without breaking the chain. The family receives the resulting certificate.</p>
+
+      <h2>Where your data lives</h2>
+      <p>Our services run on Google Cloud in the <strong>United States (Iowa)</strong>. Health data
+      about care recipients in India is therefore stored and processed in the US. This is
+      stated plainly in our <a href="/privacy">Privacy Policy</a>, and it is a deliberate
+      disclosure rather than a detail.</p>
+
+      <h2>Operational practice</h2>
+      <ul>
+        <li>Database backups run automatically.</li>
+        <li>Care professionals pass government-ID document checks, professional registry
+        checks, police clearance and a manual operations review before they can be matched.</li>
+        <li>Secrets are rotated through Secret Manager rather than redeployed in code.</li>
+      </ul>
+
+      <div class="candid">
+        <h2>What we do not claim</h2>
+        <p>Security pages usually list only strengths. These are the things we are asked
+        about that we cannot yet answer with a yes:</p>
+        <ul>
+          <li><strong>We are not SOC 2 certified.</strong> We maintain a control evidence map
+          internally, which is preparation for an audit — not the same as having passed one.</li>
+          <li><strong>Face capture is not yet face recognition.</strong> We photograph both
+          caregiver and patient at the door and seal those captures into the visit record.
+          We do not currently match a face against an enrolled photograph, and we do not
+          perform liveness detection. We will say so here when that changes.</li>
+          <li><strong>We have not completed an independent penetration test.</strong> The scope
+          is defined; the test has not been carried out.</li>
+        </ul>
+        <p>If any of this matters to a decision you are making, ask us directly and we will
+        tell you where things actually stand.</p>
+      </div>
+
+      <h2>Reporting a vulnerability</h2>
+      <p>Email <a href="mailto:admin@tuvy.health">admin@tuvy.health</a> with enough detail to
+      reproduce the issue. We will acknowledge it, and we will not pursue anyone who
+      reports a genuine finding in good faith and does not access or alter other people's
+      data while investigating.</p>
+    </main>
+  </div>
+</body>
+</html>
