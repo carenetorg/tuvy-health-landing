@@ -344,16 +344,23 @@
     width:80px;height:20px;border-radius:11px;background:#000;z-index:2;
   }
   .shot-figure figcaption{margin-top:18px;font-size:.92rem;color:var(--ink-soft);}
-  /* Caregiver screens under the handshake steps */
-  .hs-shots-lead{
+  /* Both sides of the handshake, paired */
+  .hs-pairs-lead{
     margin:46px auto 0;padding-top:34px;border-top:1px solid var(--line);
-    max-width:620px;text-align:center;font-size:.95rem;color:var(--ink-soft);
+    max-width:660px;text-align:center;font-size:.95rem;color:var(--ink-soft);
   }
-  .hs-shots{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin:26px 0 40px;}
-  .hs-shot{text-align:center;margin:0;}
-  .hs-shot .phone-light{width:200px;}
-  .hs-shot figcaption{margin-top:16px;font-size:.88rem;color:var(--ink-soft);line-height:1.55;}
-  .hs-shot figcaption b{color:var(--navy);font-weight:600;}
+  .hs-pairs{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;margin:28px 0 40px;}
+  .hs-pair{text-align:center;}
+  .hs-pair h4{font-size:1.02rem;color:var(--navy);margin-bottom:14px;}
+  .hs-duo{display:flex;justify-content:center;align-items:flex-start;gap:14px;}
+  .hs-side{flex:0 0 auto;width:150px;}
+  .hs-side .phone-light{width:150px;}
+  .hs-side .who{
+    display:block;margin-top:10px;font-size:.72rem;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--ink-soft);
+  }
+  .hs-arrow{align-self:center;font-size:1.3rem;color:var(--teal);flex:0 0 auto;padding-top:60px;}
+  .hs-pair p{margin-top:16px;font-size:.88rem;color:var(--ink-soft);line-height:1.55;}
   .dl-note{font-size:.88rem;color:var(--ink-soft);margin:16px auto 0;max-width:430px;}
   .dl-pro{margin-top:24px;padding-top:22px;border-top:1px solid var(--line);}
   .dl-pro h4{font-size:.98rem;color:var(--navy);margin-bottom:4px;}
@@ -371,7 +378,7 @@
     .nav-toggle{display:block;}
     section{padding:64px 0;}
     .problem-grid,.persona-grid,.steps,.handshake-grid,.match-grid,.stats-grid,.price-grid,.price-grid-4,.footer-grid{grid-template-columns:1fr;}
-    .hs-shots{grid-template-columns:1fr;gap:34px;}
+    .hs-pairs{grid-template-columns:1fr;gap:38px;}
     .cta-banner{padding:40px 26px;flex-direction:column;text-align:center;}
     .price-card.featured{transform:none;}
     .dl-card{padding:26px 20px;}
@@ -660,29 +667,46 @@
         <p>Both caregiver and patient are photographed at the door. Each capture is bound to the visit and sealed into its SHA-256 audit chain.</p>
       </div>
     </div>
-    <p class="hs-shots-lead">The same flow, in order, on the caregiver&rsquo;s own phone.</p>
-    <div class="hs-shots">
-      <figure class="hs-shot">
-        <div class="phone-light">
-          <img src="/img/carepro-enroute.jpg" width="620" height="1348" loading="lazy"
-               alt="Tuvy Provider en route: a live map of Bengaluru with the trip in progress, distance remaining, estimated time and GPS accuracy.">
+    <p class="hs-pairs-lead">Every step happens twice — once on the caregiver&rsquo;s phone at your parent&rsquo;s door, and once on yours, wherever you are.</p>
+    <div class="hs-pairs">
+      <div class="hs-pair">
+        <h4>On the way</h4>
+        <div class="hs-duo">
+        <figure class="hs-side">
+          <div class="phone-light">
+            <img src="/img/pair1-pro.jpg" width="620" height="1348" loading="lazy" alt="The caregiver's app en route: a live map of Bengaluru, distance remaining and a geofence check-in button.">
+          </div>
+          <figcaption class="who">Her phone</figcaption>
+        </figure>
+          <div class="hs-arrow" aria-hidden="true">&rarr;</div>
+        <figure class="hs-side">
+          <div class="phone-light">
+            <img src="/img/pair1-fam.jpg" width="620" height="1348" loading="lazy" alt="The family's app at the same moment: &quot;En route to you — Nalini Krishnan, Care Professional, ~1 min away&quot;, over the same map, with a shareable read-only link.">
+          </div>
+          <figcaption class="who">Your phone</figcaption>
+        </figure>
         </div>
-        <figcaption><b>Before the door</b> — en route, with the family following the same trip on their own map.</figcaption>
-      </figure>
-      <figure class="hs-shot">
-        <div class="phone-light">
-          <img src="/img/carepro-geofence.jpg" width="620" height="1348" loading="lazy"
-               alt="Geofence check-in: a satellite view pinned on the patient's home, reading &quot;Within 0m from the home&quot;, naming the family contact who will be notified.">
+        <p>She sets off, and the trip appears on your phone — with a link you can send to anyone in the family, no login needed.</p>
+      </div>
+      <div class="hs-pair">
+        <h4>At the door</h4>
+        <div class="hs-duo">
+        <figure class="hs-side">
+          <div class="phone-light">
+            <img src="/img/pair2-pro.jpg" width="620" height="1348" loading="lazy" alt="Geofence check-in: a satellite view pinned on the patient's home, reading &quot;Within 0m from the home&quot; and naming the family contact who will be notified.">
+          </div>
+          <figcaption class="who">Her phone</figcaption>
+        </figure>
+          <div class="hs-arrow" aria-hidden="true">&rarr;</div>
+        <figure class="hs-side">
+          <div class="phone-light">
+            <img src="/img/pair2-fam.png" width="620" height="1348" loading="lazy" alt="The family's app: &quot;Caregiver is at the door — share this code with your caregiver in Care Pro&quot;, showing a four-digit code.">
+          </div>
+          <figcaption class="who">Your phone</figcaption>
+        </figure>
         </div>
-        <figcaption><b>Step 1</b> — inside the geofence, arrival timestamped, the family contact told.</figcaption>
-      </figure>
-      <figure class="hs-shot">
-        <div class="phone-light">
-          <img src="/img/carepro-code.png" width="620" height="1348" loading="lazy"
-               alt="Visit access code: the caregiver enters the four digits the patient reads out from their own app.">
-        </div>
-        <figcaption><b>Step 2</b> — the four digits the patient reads out unlock the visit.</figcaption>
-      </figure>
+        <p>She checks in inside the geofence; you are told she arrived, and the code your parent reads out is the one that unlocks the visit.</p>
+      </div>
     </div>
     <div class="callout-bar">Sealed at checkout with a SHA-256 visit certificate, instantly delivered to the family.</div>
   </div>
