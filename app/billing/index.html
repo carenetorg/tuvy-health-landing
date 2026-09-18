@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Back to Tuvy</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="robots" content="noindex">
+<style>
+  :root{--navy:#0d2438;--teal:#1f7a6c;--cream:#f6f8f6;--ink:#0d2438;--ink-soft:#526270;
+        --line:#e3eae7;--card:#ffffff;--sage-soft:#e7f2ea;--amber:#8a6212;--amber-soft:#fbf3e4;}
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:"Segoe UI",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+       color:var(--ink);background:var(--cream);line-height:1.65;-webkit-font-smoothing:antialiased;
+       min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+        padding:38px 32px;max-width:440px;width:100%;text-align:center;
+        box-shadow:0 12px 34px rgba(13,36,56,.07);}
+  .mark{width:46px;height:46px;margin:0 auto 20px;display:block;}
+  .badge{display:inline-block;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+         padding:.3em .7em;border-radius:3px;margin-bottom:16px;}
+  .ok{background:var(--sage-soft);color:var(--teal);}
+  .halted{background:var(--amber-soft);color:var(--amber);}
+  h1{font-size:1.45rem;line-height:1.3;margin:0 0 10px;color:var(--navy);}
+  p{margin:0 0 20px;color:var(--ink-soft);font-size:.97rem;}
+  .btn{display:inline-block;background:var(--navy);color:#fff;text-decoration:none;
+       border-radius:10px;padding:13px 26px;font-size:1rem;}
+  .hint{font-size:.85rem;color:var(--ink-soft);margin:16px 0 0;}
+  .hint a{color:var(--teal);}
+</style>
+</head>
+<body>
+  <main class="card">
+    <svg class="mark" viewBox="0 0 26 30" fill="none" aria-hidden="true">
+      <path d="M13 0L26 5V13C26 21 20.5 27 13 30C5.5 27 0 21 0 13V5L13 0Z" fill="#0d2438"/>
+      <path d="M8 13.5h10M13 13.5v7" stroke="#3FC9C0" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+
+    <span class="badge ok" id="badge">Done</span>
+    <h1 id="headline">You&rsquo;re all set</h1>
+    <p id="detail">You can close this page and go back to Tuvy.</p>
+
+    <a class="btn" href="carenest://" id="return">Return to Tuvy</a>
+    <p class="hint">
+      <span id="hint">If nothing happens, switch back to the app yourself.</span>
+      Trouble? <a href="mailto:admin@tuvy.health">admin@tuvy.health</a>
+    </p>
+  </main>
+
+<script>
+  /*
+    Stripe sends the browser here after checkout or after saving a card. Which
+    of the four it was is in the query string, set by billing-service when it
+    created the session.
+
+    The copy never claims more than the redirect proves. Landing here means
+    Stripe finished with the browser; the subscription or the saved card is
+    confirmed by `checkout.session.completed` on the server, not by this page.
+    So it says the step is done and stops short of "you have been charged".
+  */
+  var p = new URLSearchParams(location.search);
+  var checkout = p.get('checkout');
+  var card = p.get('card');
+
+  var states = {
+    'checkout:success': {
+      cls: 'ok', badge: 'Payment complete', head: 'Your plan is set up',
+      detail: 'Go back to Tuvy — your plan appears once Stripe confirms it, usually within a few seconds.',
+      hint: 'If nothing happens, switch back to the app yourself.'
+    },
+    'checkout:cancelled': {
+      cls: 'halted', badge: 'Not completed', head: 'Nothing was charged',
+      detail: 'You left the payment page before it finished. You can try again from the app whenever you like.',
+      hint: 'Nothing was saved, so there is nothing to undo.'
+    },
+    'card:saved': {
+      cls: 'ok', badge: 'Card saved', head: 'Your card is on file',
+      detail: 'Nothing has been charged. You pay for each visit after it finishes, for the time it actually took.',
+      hint: 'If nothing happens, switch back to the app yourself.'
+    },
+    'card:cancelled': {
+      cls: 'halted', badge: 'Not saved', head: 'No card was added',
+      detail: 'You left before the card was saved. You can add one from the app when you are ready.',
+      hint: 'Nothing was saved, so there is nothing to undo.'
+    }
+  };
+
+  var key = checkout ? 'checkout:' + checkout : card ? 'card:' + card : null;
+  var s = states[key];
+  if (s) {
+    var badge = document.getElementById('badge');
+    badge.textContent = s.badge;
+    badge.className = 'badge ' + s.cls;
+    document.getElementById('headline').textContent = s.head;
+    document.getElementById('detail').textContent = s.detail;
+    // Never tell someone who cancelled that their change was saved.
+    if (s.hint) document.getElementById('hint').textContent = s.hint;
+  }
+</script>
+</body>
+</html>
