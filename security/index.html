@@ -86,10 +86,11 @@
         <ul>
           <li><strong>We are not SOC 2 certified.</strong> We maintain a control evidence map
           internally, which is preparation for an audit — not the same as having passed one.</li>
-          <li><strong>Face capture is not yet face recognition.</strong> We photograph both
-          caregiver and patient at the door and seal those captures into the visit record.
-          We do not currently match a face against an enrolled photograph, and we do not
-          perform liveness detection. We will say so here when that changes.</li>
+          <li><strong>Face matching has no liveness check.</strong> We photograph both
+          caregiver and patient at the door, compare each capture with the enrolled
+          photograph, and seal the captures into the visit record. We do not yet perform
+          liveness detection, so a printed photograph could pass. We will say so here when
+          that changes.</li>
           <li><strong>We have not completed an independent penetration test.</strong> The scope
           is defined; the test has not been carried out.</li>
         </ul>

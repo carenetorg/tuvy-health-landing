@@ -1,0 +1,8 @@
+{
+  "applinks": {
+    "details": [
+      { "appIDs": ["B369WF4265.health.tuvy.app"], "components": [{ "/": "/open/family/*" }] },
+      { "appIDs": ["B369WF4265.health.tuvy.pro"], "components": [{ "/": "/open/pro/*" }] }
+    ]
+  }
+}
