@@ -74,8 +74,9 @@
       <h2>Operational practice</h2>
       <ul>
         <li>Database backups run automatically.</li>
-        <li>Care professionals pass government-ID document checks, professional registry
-        checks, police clearance and a manual operations review before they can be matched.</li>
+        <li>Care professionals pass government-ID document checks, a check of their nursing or
+        medical council registration, police clearance and a manual operations review before
+        they can be matched.</li>
         <li>Secrets are rotated through Secret Manager rather than redeployed in code.</li>
       </ul>
 
@@ -93,6 +94,10 @@
           that changes.</li>
           <li><strong>We have not completed an independent penetration test.</strong> The scope
           is defined; the test has not been carried out.</li>
+          <li><strong>Council registration is checked by people, not by a live registry
+          feed.</strong> There is no reliable public API for the Indian Nursing Council
+          register, so our Operations team checks each caregiver&#x27;s registration number
+          before approving her, and records who approved it.</li>
         </ul>
         <p>If any of this matters to a decision you are making, ask us directly and we will
         tell you where things actually stand.</p>
