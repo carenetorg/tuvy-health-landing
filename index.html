@@ -410,6 +410,24 @@
     .reg-bar span{font-size:.8rem;color:var(--ink-soft);line-height:1.3;flex:0 1 120px;}
     body{padding-bottom:76px;}
   }
+
+  /* Line icons */
+  .card-ico{width:40px;height:40px;border-radius:10px;background:var(--sage-soft);color:var(--teal-dark);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+  #help .card-ico{background:var(--sage-soft);}
+  .persona-head .icon{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,0.16);display:flex;align-items:center;justify-content:center;}
+
+  /* For your parent */
+  .parent-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:center;}
+  .parent-list{list-style:none;margin-top:28px;display:grid;gap:18px;}
+  .parent-list li{display:flex;gap:16px;align-items:flex-start;}
+  .parent-list .card-ico{flex:none;margin:0;background:#fff;border:1px solid var(--line);}
+  .parent-list b{display:block;font-family:Georgia,"Times New Roman",serif;font-size:17px;color:var(--ink);margin-bottom:2px;}
+  .parent-list span{font-size:14.5px;color:var(--ink-soft);}
+  .parent-shot{justify-self:center;text-align:center;}
+  .parent-shot figcaption{margin-top:16px;font-size:.92rem;color:var(--ink-soft);max-width:280px;}
+  .parent-quote{margin-top:30px;padding:18px 22px;border-left:3px solid var(--sage);background:#fff;border-radius:0 12px 12px 0;
+    font-family:Georgia,serif;font-style:italic;font-size:17px;color:var(--ink);}
+  @media (max-width: 980px){ .parent-grid{grid-template-columns:1fr;gap:40px;} }
 </style>
 </head>
 <body>
@@ -475,22 +493,22 @@
     </div>
     <div class="problem-grid">
       <div class="problem-card">
-        <div class="icon">♥</div>
+        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></div>
         <h4>The daily question</h4>
         <p>&ldquo;Is Amma okay today?&rdquo; It follows you into meetings, dinners and late nights.</p>
       </div>
       <div class="problem-card">
-        <div class="icon">◎</div>
+        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
         <h4>The distance</h4>
         <p>8,000 miles is too far to drop by, and a video call can't check blood pressure.</p>
       </div>
       <div class="problem-card">
-        <div class="icon">🔔</div>
+        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M10 13h1.5M10 17h4M13.5 10.5l-1 1"/></svg></div>
         <h4>Not knowing</h4>
         <p>Without a record of the visit, you are left to trust and hope.</p>
       </div>
       <div class="problem-card">
-        <div class="icon">🔒</div>
+        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 21V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17"/><path d="M4 21h16"/><circle cx="14.5" cy="12.5" r="0.9" fill="currentColor"/></svg></div>
         <h4>Strangers at the door</h4>
         <p>Agencies rotate unfamiliar faces through the home of the person you love most.</p>
       </div>
@@ -508,24 +526,52 @@
     </div>
     <div class="match-grid">
       <div class="match-card">
+        <div class="card-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/><path d="M9 15l2 2 4-4"/></svg></div>
         <h4>A regular check-in</h4>
         <p>A familiar caregiver visits, takes vitals and spends time with your parent. Most visits last 30 to 60 minutes.</p>
       </div>
       <div class="match-card">
+        <div class="card-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg></div>
         <h4>Help today</h4>
         <p>Ask for a visit as soon as possible, and we offer it to approved caregivers near the home straight away.</p>
       </div>
       <div class="match-card">
+        <div class="card-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></div>
         <h4>Someone there all day or night</h4>
         <p>Attendant shifts of 8, 12 or 24 hours, for recovery after a hospital stay or when your parent shouldn&rsquo;t be alone.</p>
       </div>
       <div class="match-card">
+        <div class="card-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10.5l5-3v9l-5-3z"/></svg></div>
         <h4>A doctor on video</h4>
         <p>A video consultation with a clinician, booked from the same app.</p>
       </div>
     </div>
     <p class="hs-pairs-lead">After every visit, a report lands in your app: what was done, the readings taken, and proof of who was there.</p>
     <div style="text-align:center;margin-top:24px;"><a href="#download" class="btn btn-primary">Register your parent</a></div>
+  </div>
+</section>
+
+<section id="parent">
+  <div class="container parent-grid">
+    <div>
+      <span class="eyebrow">For your parent</span>
+      <h2 style="font-size:34px;margin:14px 0 16px;">Care that respects your parent.</h2>
+      <p class="lede">Good care should feel like a visit from someone they know: in their own home, on their own terms.</p>
+      <ul class="parent-list">
+        <li><div class="card-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></div><div><b>At home, with a familiar face</b><span>The same caregiver for 90 days, so your parent gets to know them.</span></div></li>
+        <li><div class="card-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3M14.5 8.5l2 2"/></svg></div><div><b>They hold the key</b><span>No visit starts until your parent reads out their 4-digit code.</span></div></li>
+        <li><div class="card-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><div><b>Their information, their choice</b><span>Your parent decides what each family member can see. Their photo is enrolled only with their consent.</span></div></li>
+        <li><div class="card-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg></div><div><b>Help, from the same app</b><span>Your parent can ask for help from inside Tuvy. It reaches their caregiver and our care team.</span></div></li>
+        <li><div class="card-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></div><div><b>If something doesn&rsquo;t feel right</b><span>They can report a caregiver and choose not to be matched again. It takes effect straight away.</span></div></li>
+      </ul>
+    </div>
+    <figure class="parent-shot">
+      <div class="phone-light">
+        <img src="/img/app-careteam.png" width="1206" height="2622" loading="lazy"
+             alt="The Tuvy app's Care Team screen listing the care associate, the GP panel, the family's primary contact and Tuvy support, each with its own contact action.">
+      </div>
+      <figcaption>Their caregiver, their doctor, their family and our team, each one tap away.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -554,7 +600,7 @@
   </div>
 </section>
 
-<section style="background:var(--sage-soft);">
+<section>
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Everyone involved</span>
@@ -563,7 +609,7 @@
     <div class="persona-grid">
       <div class="persona-card">
         <div class="persona-head">
-          <div class="icon">🛡️</div>
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div>
           <h4>Your parent</h4>
           <div class="role">At the heart of it</div>
         </div>
@@ -575,7 +621,7 @@
       </div>
       <div class="persona-card">
         <div class="persona-head">
-          <div class="icon">🛡️</div>
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14a6.5 6.5 0 0 1 3.5 6"/></svg></div>
           <h4>You and your family</h4>
           <div class="role">Wherever you live</div>
         </div>
@@ -587,7 +633,7 @@
       </div>
       <div class="persona-card">
         <div class="persona-head">
-          <div class="icon">🛡️</div>
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3v5a4 4 0 0 0 8 0V3"/><path d="M10 12v2a5 5 0 0 0 10 0v-1"/><circle cx="20" cy="11" r="2"/></svg></div>
           <h4>Their caregiver</h4>
           <div class="role">Care professional</div>
         </div>
@@ -599,7 +645,7 @@
       </div>
       <div class="persona-card">
         <div class="persona-head">
-          <div class="icon">🛡️</div>
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/><path d="M19 20a3 3 0 0 1-3 2h-3"/></svg></div>
           <h4>Our care team</h4>
           <div class="role">Always behind the scenes</div>
         </div>
@@ -609,13 +655,6 @@
           <li>Steps in whenever something needs attention</li>
         </ul>
       </div>
-      <figure class="shot-figure">
-        <div class="phone-light">
-          <img src="/img/app-careteam.png" width="1206" height="2622"
-               alt="The Tuvy app's Care Team screen listing the care associate, the GP panel, the family's primary contact and Tuvy support, each with its own contact action.">
-        </div>
-        <figcaption>You can see who is responsible for what, and reach any of them.</figcaption>
-      </figure>
     </div>
   </div>
 </section>
@@ -706,19 +745,19 @@
     </div>
     <div class="handshake-grid">
       <div class="handshake-card">
-        <div class="hs-icon">📍</div>
+        <div class="hs-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
         <div class="hs-step">Step 1</div>
         <h4>Arrival confirmed</h4>
         <p>Check-in only works when the caregiver's phone is at your parent's home. You get the arrival time.</p>
       </div>
       <div class="handshake-card">
-        <div class="hs-icon">🔑</div>
+        <div class="hs-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3M14.5 8.5l2 2"/></svg></div>
         <div class="hs-step">Step 2</div>
         <h4>A 4-digit visit code</h4>
         <p>Your parent reads out a 4-digit code. Only that code opens the visit.</p>
       </div>
       <div class="handshake-card">
-        <div class="hs-icon">👤</div>
+        <div class="hs-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><circle cx="12" cy="10" r="2.5"/><path d="M8 16.5a5 5 0 0 1 8 0"/></svg></div>
         <div class="hs-step">Step 3</div>
         <h4>Face check for both</h4>
         <p>Caregiver and parent are each matched to their enrolled photo, and the result is sealed into the visit record.</p>
