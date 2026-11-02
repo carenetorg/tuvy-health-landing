@@ -385,6 +385,31 @@
     .dl-card{padding:26px 20px;}
     .store-btn{min-width:0;width:100%;justify-content:flex-start;}
   }
+
+  /* Registration: steps, reassurance, QR, sticky mobile bar */
+  #download .dl-card{max-width:780px;}
+  .reg-steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 0 26px;text-align:left;counter-reset:reg;}
+  .reg-steps li{counter-increment:reg;background:var(--sage-soft);border-radius:12px;padding:16px 16px 16px 52px;position:relative;font-size:.92rem;color:var(--ink-soft);}
+  .reg-steps li::before{content:counter(reg);position:absolute;left:16px;top:16px;width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-weight:700;font-size:.8rem;display:flex;align-items:center;justify-content:center;}
+  .reg-steps b{display:block;color:var(--navy);font-size:.98rem;margin-bottom:2px;}
+  .reassure{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin:22px 0 0;padding:0;list-style:none;font-size:.88rem;color:var(--ink);font-weight:600;}
+  .reassure li{display:flex;align-items:center;gap:8px;}
+  .reassure li::before{content:"\2713";color:var(--teal);font-weight:800;}
+  .qr-row{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:22px;}
+  .qr-row img{width:104px;height:104px;border-radius:8px;border:1px solid var(--line);padding:6px;background:#fff;}
+  .qr-row p{font-size:.88rem;color:var(--ink-soft);max-width:220px;text-align:left;margin:0;}
+  .reg-bar{display:none;}
+  @media (max-width: 680px){
+    .reg-steps{grid-template-columns:1fr;}
+    .nav-cta{display:none;}
+    .qr-row{display:none;}
+    .reg-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;gap:10px;align-items:center;
+      padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(246,248,246,0.96);
+      backdrop-filter:blur(10px);border-top:1px solid var(--line);}
+    .reg-bar .btn{flex:1;padding:13px 16px;}
+    .reg-bar span{font-size:.8rem;color:var(--ink-soft);line-height:1.3;flex:0 1 120px;}
+    body{padding-bottom:76px;}
+  }
 </style>
 </head>
 <body>
@@ -405,7 +430,7 @@
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-cta">
-      <a href="#download" class="btn btn-primary" style="padding:10px 18px;">Get the app</a>
+      <a href="#download" class="btn btn-primary" style="padding:10px 18px;">Register your parent</a>
     </div>
     <button class="nav-toggle" aria-label="Menu">☰</button>
   </div>
@@ -418,9 +443,10 @@
     <h1>Love them from any distance.</h1>
     <p class="lede">Tuvy sends the same verified caregiver to your parent&rsquo;s home, visit after visit. You see who arrived, what was checked, and how they are — on your phone, wherever you are.</p>
     <div class="hero-actions">
-      <a href="#download" class="btn btn-primary">Get the app</a>
+      <a href="#download" class="btn btn-primary">Register your parent</a>
       <a href="mailto:admin@tuvy.health?subject=Help%20for%20my%20parent" class="btn btn-outline-light" style="border-color:rgba(255,255,255,0.4);">Talk to us about your parent</a>
     </div>
+    <p style="margin-top:16px;font-size:14px;color:rgba(255,255,255,0.7);">Free to register. You pay only for the visits you book.</p>
     </div>
     <div class="hero-shot">
       <div class="phone">
@@ -499,6 +525,7 @@
       </div>
     </div>
     <p class="hs-pairs-lead">After every visit, a report lands in your app: what was done, the readings taken, and proof of who was there.</p>
+    <div style="text-align:center;margin-top:24px;"><a href="#download" class="btn btn-primary">Register your parent</a></div>
   </div>
 </section>
 
@@ -784,7 +811,7 @@
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Plans</span>
-      <h2>Simple monthly plans. Care you can see.</h2>
+      <h2>Start with one visit. Stay because it helps.</h2>
       <p class="lede">Three plans, the same price across India, including 18% GST. Save 5% paying quarterly or 15% paying annually. Online sign-up opens soon; until then, each visit is billed on its own and paid in cash when the caregiver arrives.</p>
     </div>
     <div class="price-grid">
@@ -797,7 +824,7 @@
           <li><span class="check">✓</span>Monthly health report</li>
           <li><span class="check">✓</span>Same caregiver for 90 days</li>
         </ul>
-        <a href="#download" class="btn btn-ghost">Choose Essential</a>
+        <a href="#download" class="btn btn-ghost">Register to start</a>
       </div>
       <div class="price-card featured">
         <h3>Plus</h3>
@@ -806,7 +833,7 @@
           <li><span class="check">✓</span>Everything in Essential</li>
           <li><span class="check">✓</span>2 home visits a month</li>
         </ul>
-        <a href="#download" class="btn btn-primary">Choose Plus</a>
+        <a href="#download" class="btn btn-primary">Register to start</a>
       </div>
       <div class="price-card">
         <h3>Comprehensive</h3>
@@ -816,7 +843,7 @@
           <li><span class="check">✓</span>4 home visits a month</li>
           <li><span class="check">✓</span>Caregivers of a higher clinical grade only</li>
         </ul>
-        <a href="#download" class="btn btn-ghost">Choose Comprehensive</a>
+        <a href="#download" class="btn btn-ghost">Register to start</a>
       </div>
     </div>
   </div>
@@ -825,14 +852,29 @@
 <section id="download" class="download">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Get Tuvy</span>
-      <h2>Bring Tuvy home.</h2>
-      <p class="lede">Download the app and add your parent. It takes a few minutes.</p>
+      <span class="eyebrow">Register</span>
+      <h2>Register your parent in a few minutes.</h2>
+      <p class="lede">Free to register. Book a first visit when you&rsquo;re ready, and see for yourself how your parent is cared for.</p>
     </div>
     <div class="dl-card">
+      <ol class="reg-steps">
+        <li><b>Download Tuvy</b>Free on the App Store.</li>
+        <li><b>Sign in</b>With your mobile number and a 6-digit code.</li>
+        <li><b>Add your parent</b>Then book a first visit, whenever you&rsquo;re ready.</li>
+      </ol>
       <div class="store-row">
         <a class="store-btn" href="https://apps.apple.com/app/id6809455314" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.8c0-2.2 1.8-3.3 1.9-3.3-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.7.8-3.3.8-.7 0-1.7-.8-2.8-.8-1.5 0-2.8.8-3.6 2.1-1.5 2.6-.4 6.5 1.1 8.6.7 1 1.6 2.2 2.7 2.2 1.1 0 1.5-.7 2.8-.7s1.6.7 2.8.7c1.2 0 1.9-1 2.6-2.1.8-1.2 1.2-2.4 1.2-2.5-.1 0-2.2-.9-2.2-3.3zM14.3 5.6c.6-.7 1-1.7.9-2.7-.9 0-2 .6-2.6 1.3-.6.6-1.1 1.6-.9 2.6 1 .1 2-.5 2.6-1.2z"/></svg><span class="txt"><span class="l1">Download on the</span><span class="l2">App Store</span></span></a>
       </div>
+      <div class="qr-row">
+        <img src="/img/qr-app-store.svg" width="104" height="104" alt="QR code for the Tuvy app on the App Store">
+        <p>On a computer? Scan this with your phone&rsquo;s camera to download Tuvy.</p>
+      </div>
+      <ul class="reassure">
+        <li>Free to register</li>
+        <li>Pay only for visits you book</li>
+        <li>Not charged if a visit doesn&rsquo;t happen</li>
+        <li>Free to cancel until your caregiver sets off</li>
+      </ul>
       <p class="dl-note">Tuvy is rolling out now. If the app isn&rsquo;t in your store yet,
         <a href="mailto:admin@tuvy.health?subject=Tuvy%20early%20access">ask us for early access</a>.</p>
       <div class="dl-pro">
@@ -851,11 +893,11 @@
     <div class="cta-banner">
       <div>
         <span class="script">Close to them, wherever you are.</span>
-        <h2>Ready to bring Tuvy home?</h2>
-        <p>A caregiver you can trust. A family that stays close. A record of every visit.</p>
+        <h2>Your parent deserves someone you trust.</h2>
+        <p>Register in a few minutes. Book a first visit when you&rsquo;re ready.</p>
       </div>
       <div class="cta-actions">
-        <a href="#download" class="btn btn-light">Get the app</a>
+        <a href="#download" class="btn btn-light">Register your parent</a>
         <a href="mailto:admin@tuvy.health?subject=Help%20for%20my%20parent" class="btn btn-outline-light">Talk to us about your parent</a>
       </div>
     </div>
@@ -871,7 +913,7 @@
     <div class="faq">
       <details class="faq-item" open>
         <summary>I&rsquo;m not sure what my parent needs. Where do I start?</summary>
-        <p>Start with a single home visit. A caregiver checks in on your parent, takes their vitals, and you get a report in the app the same day. From there you can add regular visits, longer attendant shifts or a video consultation as you learn what helps. If you would rather talk it through first, write to us at <a href="mailto:admin@tuvy.health?subject=Help%20for%20my%20parent">admin@tuvy.health</a> and tell us a little about your parent.</p>
+        <p>Register for free, then start with a single home visit. A caregiver checks in on your parent, takes their vitals, and you get a report in the app the same day. From there you can add regular visits, longer attendant shifts or a video consultation as you learn what helps. If you would rather talk it through first, write to us at <a href="mailto:admin@tuvy.health?subject=Help%20for%20my%20parent">admin@tuvy.health</a> and tell us a little about your parent.</p>
       </details>
       <details class="faq-item">
         <summary>How are Tuvy caregivers verified?</summary>
@@ -896,6 +938,11 @@
     </div>
   </div>
 </section>
+
+<div class="reg-bar" aria-label="Register">
+  <span>Free to register</span>
+  <a href="#download" class="btn btn-primary">Register your parent</a>
+</div>
 
 <footer>
   <div class="container">
