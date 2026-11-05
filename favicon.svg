@@ -1,4 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -1 32 32" width="32" height="32">
-  <rect x="-3" y="-1" width="32" height="32" rx="6" fill="#f6f8f6"/>
-  <path d="M13 0L26 5V13C26 21 20.5 27 13 30C5.5 27 0 21 0 13V5L13 0Z" fill="#1f7a6c"/><path d="M13 0V30C5.5 27 0 21 0 13V5L13 0Z" fill="#0d2438"/>
+<!-- Tuvy brand mark. Generated from design_handoff_tuvy_logo.
+     Geometry is final; see libs/shared/assets/brand/README.md. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88 88" width="88" height="88" role="img" aria-label="Tuvy">
+  <title>Tuvy mark - thickened for 20px favicon floor</title>
+  <rect x="18" y="24" width="52" height="12" rx="6" fill="#0E7E6F"/>
+  <rect x="39" y="24" width="10" height="44" rx="6" fill="#0E7E6F"/>
+  <circle cx="44" cy="78" r="7" fill="#C97A0A"/>
 </svg>
