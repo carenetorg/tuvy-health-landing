@@ -91,6 +91,17 @@
     those prefixes that reaches a browser should say which app it belongs to and
     how to get it, rather than "Page not found".
   */
+  /*
+    EXT-2: the lab collector's WhatsApp link, https://tuvy.health/open/collect/<token>. Tuvy Pro
+    opens it itself when installed (universal link). Landing here means it did not, so hand the
+    token to the collector page, which offers "Open in the Tuvy Pro app" or "Continue in browser".
+    The token goes into that one URL and nowhere else; anything not shaped like one is dropped.
+  */
+  (function () {
+    var c = /^\/open\/collect\/([A-Za-z0-9_-]{8,200})\/?$/.exec(location.pathname);
+    if (!c) return;
+    location.replace('https://ops-dashboard--carenet-494419.us-central1.hosted.app/share/collection/' + encodeURIComponent(c[1]));
+  })();
   (function () {
     var m = /^\/open\/(family|pro)(\/|$)/i.exec(location.pathname);
     if (!m) return;
