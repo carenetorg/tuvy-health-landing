@@ -37,7 +37,7 @@
     <a class="back" href="/">&larr; Tuvy</a>
     <main class="card">
 <h1>Tuvy Privacy Policy</h1>
-<p class="meta"><strong>Last updated:</strong> 19 November 2026<br>
+<p class="meta"><strong>Last updated:</strong> 20 November 2026<br>
 <strong>Entity:</strong> tuvy inc (&quot;Tuvy&quot;, &quot;we&quot;, &quot;us&quot;)<br>
 <strong>Contact / Grievance Officer:</strong> <a href="mailto:admin@tuvy.health">admin@tuvy.health</a></p>
 
@@ -87,7 +87,7 @@
 <li><strong>Reading text (OCR)</strong>, to save typing: a photo of a measuring device&#x27;s display, so the numbers can be filled in for the caregiver to confirm; a caregiver&#x27;s government ID during application; and a prescription, report or pharmacy bill uploaded to a visit.</li>
 <li><strong>Face detection at check-in</strong>: a caregiver&#x27;s face check-in photo is sent to Cloud Vision face detection to check that a face is present in it. The 1:1 comparison of that photo with the caregiver&#x27;s enrolled photo does not use Google; it runs on Tuvy&#x27;s own servers.</li>
 </ul>
-<p><strong>Reading a measuring device with Vertex AI:</strong> a photo of a measuring device&#x27;s display may also be read by <strong>Vertex AI</strong>, Google Cloud&#x27;s AI service, acting as our processor, in the same Google Cloud region as the rest of Tuvy (section 5). Its reading is compared with Cloud Vision&#x27;s, and the caregiver checks every number before anything is saved. Google&#x27;s terms for Vertex AI do not allow it to use the photo to train its models, and we have switched off Google&#x27;s optional caching of these requests.</p>
+<p><strong>Reading a measuring device with Vertex AI:</strong> a photo of a measuring device&#x27;s display may also be read by <strong>Vertex AI</strong>, Google Cloud&#x27;s AI service, acting as our processor. Vertex AI is not tied to one region: Google may process each photo in any of its data-centre regions, inside or outside the United States, and does not keep it after the reading is returned (section 5). Its reading is compared with Cloud Vision&#x27;s, and the caregiver checks every number before anything is saved. Google&#x27;s terms for Vertex AI do not allow it to use the photo to train its models, and we have switched off Google&#x27;s optional caching of these requests.</p>
 <p>Photos sent to Google Cloud Vision or Vertex AI are not used by Google for any other purpose.</p>
 
 <h2>3. How we use your information</h2>
@@ -106,7 +106,7 @@
 </ul>
 
 <h2>5. International transfers</h2>
-<p>Tuvy operates from India and hosts data on Google Cloud. <strong>Your information — including health information about the care recipient — is stored and processed on Google Cloud servers in the United States (region <code>us-central1</code>, Iowa)</strong>, not in India. This is true whether you use the service from India or elsewhere. We do this under appropriate contractual safeguards with Google Cloud as our processor. If you would prefer your data to be held in India, contact us at the address below.</p>
+<p>Tuvy operates from India and hosts data on Google Cloud. <strong>Your information — including health information about the care recipient — is stored and processed on Google Cloud servers in the United States (region <code>us-central1</code>, Iowa)</strong>, not in India. This is true whether you use the service from India or elsewhere. One exception: a photo of a measuring device&#x27;s display, sent to Vertex AI to read the numbers (section 4), may be processed in any Google Cloud region; it carries no name, and only the reading comes back to be stored in the United States. We do this under appropriate contractual safeguards with Google Cloud as our processor. If you would prefer your data to be held in India, contact us at the address below.</p>
 <h2>6. Data retention</h2>
 <p>We keep information for as long as your account is active and as needed to provide the service, then delete or anonymize it, except where longer retention is required for legal, tax, safety, or dispute-resolution reasons. See account deletion below. A clinical export (section 4) is kept as a file in our storage so that the record of what was disclosed survives the disclosure; the record of the export itself is kept for two years alongside our other audit records. A copy that someone has already downloaded cannot be recalled or deleted by us.</p>
 <h2>7. Security</h2>
